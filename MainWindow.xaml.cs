@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Security.Cryptography.X509Certificates;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -36,6 +37,7 @@ namespace eClean
             winTemp = new DirectoryInfo(@"C:\Windows\Temp");
             appTemp = new DirectoryInfo(System.IO.Path.GetTempPath());
             CheckActus();
+            date.Content = File.ReadAllText("date.txt");
         }
 
         public void CheckVersion()
@@ -46,7 +48,22 @@ namespace eClean
                 string v = client.DownloadString(url);
                 if(v != version)
                 {
-                    MessageBox.Show("Une mise à jour est disponible.", "Version du logiciel", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    MessageBox.Show("Une mise à jour est disponible. Vous allez être rediriger.", "Version du logiciel", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    try
+                    {
+                        Process.Start(new ProcessStartInfo("https://github.com/Strikeuh/eClean/archive/master.zip")
+                        {
+                            UseShellExecute = true
+                        });
+                        // On nomme l'erreur
+                    }
+                    catch (Exception ex)
+                    {
+                        // On affiche l'erreur afin de comprendre le problème.
+                        Console.WriteLine("Erreur lors du chargement de la page d'aide.");
+                        Console.WriteLine("Erreur : " + ex.Message);
+                    }
+
                 }
                 else
                 {
@@ -167,6 +184,7 @@ namespace eClean
             espace.Content = totalsize + "Mo";
             Titre.Content = "Analyse effectué !";
             date.Content = DateTime.Today;
+            SaveDate();
         }
 
         private void Button_Nettoyer_1(object sender, RoutedEventArgs e)
@@ -196,6 +214,11 @@ namespace eClean
             btnClean.Content = "\n\n NETTOYAGE TERMINER";
             Titre.Content = "Nettoyage effectué !";
             espace.Content = "0 Mo";
+        }
+        public void SaveDate()
+        {
+            string date = DateTime.Today.ToString();
+            File.WriteAllText("Date.txt", date);
         }
     }
 }

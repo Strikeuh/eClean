@@ -29,7 +29,7 @@
 
         <!-- Footer -->
         <Rectangle x:Name="Basdepage" HorizontalAlignment="Center" Height="89" Margin="0,411,0,0" Stroke="Black" VerticalAlignment="Top" Width="750" StrokeThickness="0" Fill="#FFD4D1D1" Visibility="Visible"/>
-        <Label Content="Copyright 2020" HorizontalAlignment="Left" Margin="308,411,0,0" VerticalAlignment="Top" Height="47" Width="190" FontSize="22" FontFamily="Arial Nova" FontWeight="Bold"/>
+        <Label Content="Copyright 2020" HorizontalAlignment="Center" Margin="0,411,0,0" VerticalAlignment="Top" Height="63" Width="223" FontSize="28" FontFamily="Arial Nova" FontWeight="Bold"/>
         <Rectangle x:Name="acturectangle" HorizontalAlignment="Center" Height="46" Margin="0,456,0,0" Stroke="Black" VerticalAlignment="Top" Width="750" Fill="#FFEE7777" Visibility="Hidden"/>
         <Label x:Name="actu" Content="" HorizontalAlignment="Left" Margin="258,458,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" FontFamily="Arial Nova" Visibility="Visible" Width="457"/>
         <Button x:Name="btnClean" Content="&#xD;&#xA;&#xD;&#xA;NETTOYER" HorizontalAlignment="Left" Margin="44,166,0,0" VerticalAlignment="Top" Height="98" Width="289" Background="#FF0E76B2" FontWeight="Bold" FontSize="20" Foreground="White" Click="Button_Nettoyer_1"/>
