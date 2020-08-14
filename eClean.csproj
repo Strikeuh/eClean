@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="besoin-aidepdf.png" />
+    <None Remove="e.png" />
+    <None Remove="icons8-date-de-paiement-100.png" />
+    <None Remove="icons8-liste-de-tâches-64 %281%29.png" />
+    <None Remove="icons8-liste-de-tâches-64.png" />
+    <None Remove="icons8-nettoyer-les-bords-50.png" />
+    <None Remove="icons8-propre-32.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="besoin-aidepdf.png" />
+    <Resource Include="e.png" />
+    <Resource Include="icons8-date-de-paiement-100.png" />
+    <Resource Include="icons8-liste-de-tâches-64 (1).png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons8-liste-de-tâches-64.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons8-nettoyer-les-bords-50.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="icons8-propre-32.png" />
+  </ItemGroup>
+
+</Project>
