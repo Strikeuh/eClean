@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>icons8-clean-64.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

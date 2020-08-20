@@ -29,25 +29,54 @@ namespace eClean
         string version = "1.0.0";
         public DirectoryInfo winTemp;
         public DirectoryInfo appTemp;
+        private string v;
+        private string actus;
+        private int nbTotal;
+        public string compteur;
+        public int resultat;
+        public int resultat2;
+        public string compteur2;
+        public long totalsize;
+        public string mode;
 
         public MainWindow()
         {
+            // Création de la page. 
+            // Lors ce que l'on ouvre la page = 
             InitializeComponent();
             // Attribution du repertoire des dossiers à effacer :
             winTemp = new DirectoryInfo(@"C:\Windows\Temp");
             appTemp = new DirectoryInfo(System.IO.Path.GetTempPath());
-            CheckActus();
+            try
+            {
+                CheckActus();
+            } catch(Exception ex)
+            {
+                mode = "hl";
+            }
             date.Content = File.ReadAllText("date.txt");
+            if (date.Content == "")
+                date.Content = "Jamais";
+            if (mode == "hl")
+            {
+                majHL.Visibility = Visibility.Visible;
+                majlabelHL.Visibility = Visibility.Visible;
+                btnMaj.Visibility = Visibility.Hidden;
+            }
         }
 
+        /// <summary>
+        /// Regarde sur le serveur Web la version actuelle et regarde la version du logiciel.
+        /// </summary>
         public void CheckVersion()
         {
-            string url = "http://localhost/eclean-siteweb/version.txt";
+            string url = "https://ecleantxt.000webhostapp.com/version.txt";
             using (WebClient client = new WebClient())
             {
-                string v = client.DownloadString(url);
-                if(v != version)
+                string v = client.DownloadString(url).ToString();
+                if (v != version)
                 {
+                    btnMaj.Content = "\n\nMETTRE A JOUR";
                     MessageBox.Show("Une mise à jour est disponible. Vous allez être rediriger.", "Version du logiciel", MessageBoxButton.OK, MessageBoxImage.Exclamation);
                     try
                     {
@@ -68,13 +97,17 @@ namespace eClean
                 else
                 {
                     MessageBox.Show("Votre logiciel est à jour.", "Version du logiciel.", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                    btnMaj.Content = "\n\nMETTRE A JOUR";
                 }
             }
         }
 
+        /// <summary>
+        /// Regarde sur le serveur web si il y a des actualités à afficher.
+        /// </summary>
         public void CheckActus()
         {
-            string url = "http://localhost/eclean-siteweb/actualite.txt";
+            string url = "https://ecleantxt.000webhostapp.com/actualite.txt";
             using (WebClient client = new WebClient())
             {
                 string actus = client.DownloadString(url);
@@ -82,7 +115,6 @@ namespace eClean
                 {
                     actu.Content = actus;
                     actu.Visibility = Visibility.Visible;
-                    actu2.Visibility = Visibility.Visible;
                     acturectangle.Visibility = Visibility.Visible;
                 }
             }
@@ -124,13 +156,10 @@ namespace eClean
                     continue;
                 }
             }
+            date.Content = DateTime.Now;
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            fenetre.Close();
-        }
 
         private void Button_MAJ_Click_1(object sender, RoutedEventArgs e)
         {
@@ -140,7 +169,7 @@ namespace eClean
 
         private void Button_histo_Click_1(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Dernier nettoyage le : " + datage.Content, "Historique des nettoyages");
+            MessageBox.Show("Nombre total de nettoyage : " + File.ReadAllText("nbTotal.txt"), "Statistique", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void Button_Aide_1(object sender, RoutedEventArgs e)
@@ -170,7 +199,6 @@ namespace eClean
         public void AnalyseFolders()
         {
             Console.WriteLine("Début de l'analyse.");
-            long totalsize = 0;
 
             try
             {
@@ -183,8 +211,9 @@ namespace eClean
 
             espace.Content = totalsize + "Mo";
             Titre.Content = "Analyse effectué !";
-            date.Content = DateTime.Today;
             SaveDate();
+            moTotal();
+            totalsize = 0;
         }
 
         private void Button_Nettoyer_1(object sender, RoutedEventArgs e)
@@ -214,11 +243,39 @@ namespace eClean
             btnClean.Content = "\n\n NETTOYAGE TERMINER";
             Titre.Content = "Nettoyage effectué !";
             espace.Content = "0 Mo";
+            CheckTotal();
         }
         public void SaveDate()
         {
             string date = DateTime.Today.ToString();
             File.WriteAllText("Date.txt", date);
+        }
+
+        private void CheckTotal()
+        {
+            // Recupère le total en string
+            compteur = File.ReadAllText("nbTotal.txt");
+            // Convertir string en int :
+            int resultat = Int32.Parse(compteur);
+            // Ajoute 1 :
+            resultat += 1;
+            // Convertir int en string :
+            compteur = resultat.ToString();
+            // Ré écris la nouvelle valeur : 
+            File.WriteAllText("nbTotal.txt", compteur);
+        }
+        private void moTotal()
+        {
+            // Recupère le total en string
+            compteur2 = File.ReadAllText("moTotal.txt");
+            // Convertir string en int :
+            long resultat2 = Int32.Parse(compteur2);
+            // Ajoute 1 :
+            resultat2 += totalsize;
+            // Convertir int en string :
+            compteur2 = resultat2.ToString();
+            // Ré écris la nouvelle valeur : 
+            File.WriteAllText("moTotal.txt", compteur2);
         }
     }
 }

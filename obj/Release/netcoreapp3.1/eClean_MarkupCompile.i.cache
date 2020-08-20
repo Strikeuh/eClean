@@ -4,15 +4,15 @@
 winexe
 C#
 .cs
-C:\Users\Bapti\Desktop\Csharp\eClean\eClean\obj\Debug\netcoreapp3.1\
+C:\Users\Bapti\Desktop\Csharp\eClean\eClean\obj\Release\netcoreapp3.1\
 eClean
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
+TRACE;RELEASE;NETCOREAPP;NETCOREAPP3_1
 C:\Users\Bapti\Desktop\Csharp\eClean\eClean\App.xaml
 2-2135955592
 
-6-1936165686
+62104483048
 1921654412462
 config.xaml;MainWindow.xaml;
 

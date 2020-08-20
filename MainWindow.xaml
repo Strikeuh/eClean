@@ -6,14 +6,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:eClean"
         mc:Ignorable="d"
-        Title="eClean" Height="500" Width="750" FontWeight="Normal" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Icon="/icons8-propre-32.png">
+        Title="eClean" Height="500" Width="750" FontWeight="Normal" WindowStyle="SingleBorderWindow" ResizeMode="CanMinimize" WindowStartupLocation="Manual" ScrollViewer.HorizontalScrollBarVisibility="Auto" Icon="/icons8-propre-32.png" SizeToContent="WidthAndHeight">
     <Grid>
         <Rectangle x:Name="Rectangle" Stroke="Black" Margin="0,0,0,373" Fill="#FF138BDE" StrokeThickness="0"/>
         <Label x:Name="Titre" Content="ANALYSE DU PC NECESSAIRE" HorizontalAlignment="Left" Margin="44,10,0,0" VerticalAlignment="Top" Height="39" Width="372" Foreground="White" FontWeight="Bold" FontSize="24" FontFamily="Arial Nova Light"/>
         <Label Content="Espace à nettoyer :" HorizontalAlignment="Left" Margin="44,54,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18" FontFamily="Arial Nova Light"/>
-        <Label x:Name="datage" Content="Dernière analyse :" HorizontalAlignment="Left" Margin="44,75,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18" FontFamily="Arial Nova Light"/>
-        <Button x:Name="Btn_Analyser" Content="ANALYSER" HorizontalAlignment="Left" Margin="483,35,0,0" VerticalAlignment="Top" Height="68" Width="232" Background="#FF0E76B2" BorderThickness="3,3,3,3" FontSize="22" FontWeight="Bold" BorderBrush="#FFF3F1F1" Foreground="White" Click="Button_Analyser_1"/>
-        <Button x:Name="croix" Content="X" HorizontalAlignment="Left" Margin="716,0,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.933,0.267" Background="{x:Null}" Width="34" Click="Button_Click" BorderBrush="#FF999999" FontWeight="Bold" Foreground="Black"/>
+        <Label x:Name="datage" Content="Dernière nettoyage :" HorizontalAlignment="Left" Margin="44,75,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="18" FontFamily="Arial Nova Light"/>
+        <Button x:Name="Btn_Analyser" Content="ANALYSER" HorizontalAlignment="Left" Margin="483,17,0,0" VerticalAlignment="Top" Height="68" Width="232" Background="#FF0E76B2" BorderThickness="3,3,3,3" FontSize="22" FontWeight="Bold" BorderBrush="#FFF3F1F1" Foreground="White" Click="Button_Analyser_1"/>
         <Label x:Name="espace" Content="A déterminer par analyse" HorizontalAlignment="Left" Margin="214,54,0,0" VerticalAlignment="Top" Width="218" Foreground="White" FontFamily="Arial Nova Light" FontSize="18" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>
                 <TransformGroup>
@@ -24,22 +23,22 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <Label x:Name="date" Content="Jamais" HorizontalAlignment="Left" Margin="209,75,0,0" VerticalAlignment="Top" Width="199" Foreground="White" FontFamily="Arial Nova Light" FontSize="18"/>
-        <Rectangle HorizontalAlignment="Center" Height="13" Margin="0,127,0,0" Stroke="Black" VerticalAlignment="Top" Width="750" StrokeThickness="0" Fill="#FFD4D1D1"/>
+        <Label x:Name="date" Content="Jamais" HorizontalAlignment="Left" Margin="224,75,0,0" VerticalAlignment="Top" Width="96" Foreground="White" FontFamily="Arial Nova Light" FontSize="18"/>
+        <Rectangle HorizontalAlignment="Left" Height="13" Margin="0,116,0,0" Stroke="Black" VerticalAlignment="Top" Width="750" StrokeThickness="0" Fill="#FFD4D1D1"/>
 
         <!-- Footer -->
         <Rectangle x:Name="Basdepage" HorizontalAlignment="Center" Height="89" Margin="0,411,0,0" Stroke="Black" VerticalAlignment="Top" Width="750" StrokeThickness="0" Fill="#FFD4D1D1" Visibility="Visible"/>
-        <Label Content="Copyright 2020" HorizontalAlignment="Center" Margin="0,411,0,0" VerticalAlignment="Top" Height="63" Width="223" FontSize="28" FontFamily="Arial Nova" FontWeight="Bold"/>
-        <Rectangle x:Name="acturectangle" HorizontalAlignment="Center" Height="46" Margin="0,456,0,0" Stroke="Black" VerticalAlignment="Top" Width="750" Fill="#FFEE7777" Visibility="Hidden"/>
-        <Label x:Name="actu" Content="" HorizontalAlignment="Left" Margin="258,458,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="20" FontFamily="Arial Nova" Visibility="Visible" Width="457"/>
-        <Button x:Name="btnClean" Content="&#xD;&#xA;&#xD;&#xA;NETTOYER" HorizontalAlignment="Left" Margin="44,166,0,0" VerticalAlignment="Top" Height="98" Width="289" Background="#FF0E76B2" FontWeight="Bold" FontSize="20" Foreground="White" Click="Button_Nettoyer_1"/>
-        <Button x:Name="btnHistorique" Content="&#xD;&#xA;&#xD;&#xA;HISTORIQUE" HorizontalAlignment="Left" Margin="44,288,0,0" VerticalAlignment="Top" Height="101" Width="289" Background="#FF0E76B2" Foreground="White" FontWeight="Bold" FontSize="20" Click="Button_histo_Click_1"/>
-        <Button x:Name="btnMaj" Content="&#xD;&#xA;&#xD;&#xA;MISE A JOUR" HorizontalAlignment="Left" Margin="427,166,0,0" VerticalAlignment="Top" Height="98" Width="288" Background="#FF0E76B2" Foreground="White" FontSize="20" FontWeight="Bold" Click="Button_MAJ_Click_1"/>
-        <Button x:Name="btnAide" Content="&#xD;&#xA;&#xD;&#xA;BESOIN D'AIDE" HorizontalAlignment="Left" Margin="427,288,0,0" VerticalAlignment="Top" Height="101" Width="289" Background="#FF0E76B2" Foreground="White" FontSize="20" FontWeight="Bold" Click="Button_Aide_1"/>
-        <Image HorizontalAlignment="Left" Height="50" Margin="159,176,0,0" VerticalAlignment="Top" Width="69" Source="/icons8-nettoyer-les-bords-50.png" IsHitTestVisible="False"/>
-        <Image HorizontalAlignment="Left" Height="57" Margin="543,172,0,0" VerticalAlignment="Top" Width="75" Source="/icons8-liste-de-tâches-64 (1).png" IsHitTestVisible="False"/>
-        <Image HorizontalAlignment="Left" Height="55" Margin="156,297,0,0" VerticalAlignment="Top" Width="75" Source="/icons8-date-de-paiement-100.png" IsHitTestVisible="False"/>
-        <Image HorizontalAlignment="Left" Height="52" Margin="542,298,0,0" VerticalAlignment="Top" Width="81" RenderTransformOrigin="0.5,0.5" Source="/besoin-aidepdf.png" IsHitTestVisible="False">
+        <Label Content="Copyright 2020, Strikeuh" HorizontalAlignment="Center" Margin="0,411,0,0" VerticalAlignment="Top" Height="63" Width="344" FontSize="28" FontFamily="Arial Nova" FontWeight="Bold"/>
+        <Rectangle x:Name="acturectangle" HorizontalAlignment="Center" Height="36" Margin="0,466,0,0" Stroke="Black" VerticalAlignment="Top" Width="750" Fill="#FFEE7777" Visibility="Hidden"/>
+        <Label x:Name="actu" Content="" HorizontalAlignment="Left" Margin="188,470,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" FontFamily="Arial Nova" Visibility="Hidden" Width="527" Height="28"/>
+        <Button x:Name="btnClean" Content="&#xD;&#xA;&#xD;&#xA;NETTOYER" HorizontalAlignment="Left" Margin="44,152,0,0" VerticalAlignment="Top" Height="98" Width="289" Background="#FF0E76B2" FontWeight="Bold" FontSize="20" Foreground="White" Click="Button_Nettoyer_1"/>
+        <Button x:Name="btnHistorique" Content="&#xD;&#xA;&#xD;&#xA;STATISTIQUES" HorizontalAlignment="Left" Margin="44,274,0,0" VerticalAlignment="Top" Height="101" Width="289" Background="#FF0E76B2" Foreground="White" FontWeight="Bold" FontSize="20" Click="Button_histo_Click_1"/>
+        <Button x:Name="btnMaj" Content="&#xD;&#xA;&#xD;&#xA;METTRE A JOUR" HorizontalAlignment="Left" Margin="414,152,0,0" VerticalAlignment="Top" Height="98" Width="288" Background="#FF0E76B2" Foreground="White" FontSize="20" FontWeight="Bold" Click="Button_MAJ_Click_1" Visibility="Visible"/>
+        <Button x:Name="btnAide" Content="&#xD;&#xA;&#xD;&#xA;BESOIN D'AIDE" HorizontalAlignment="Left" Margin="414,274,0,0" VerticalAlignment="Top" Height="101" Width="289" Background="#FF0E76B2" Foreground="White" FontSize="20" FontWeight="Bold" Click="Button_Aide_1"/>
+        <Image HorizontalAlignment="Left" Height="50" Margin="159,165,0,0" VerticalAlignment="Top" Width="69" Source="/icons8-nettoyer-les-bords-50.png" IsHitTestVisible="False"/>
+        <Image HorizontalAlignment="Left" Height="56" Margin="530,162,0,0" VerticalAlignment="Top" Width="76" Source="/icons8-liste-de-tâches-64 (1).png" IsHitTestVisible="False"/>
+        <Image HorizontalAlignment="Left" Height="55" Margin="154,284,0,0" VerticalAlignment="Top" Width="75" Source="/icons8-date-de-paiement-100.png" IsHitTestVisible="False"/>
+        <Image HorizontalAlignment="Left" Height="52" Margin="542,288,0,0" VerticalAlignment="Top" Width="81" RenderTransformOrigin="0.5,0.5" Source="/besoin-aidepdf.png" IsHitTestVisible="False">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -49,7 +48,8 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Rectangle x:Name="infos" HorizontalAlignment="Center" Height="44" Margin="0,458,0,0" Stroke="Black" VerticalAlignment="Top" Width="750" Fill="#FFEC2929" Opacity="0.85" Visibility="Hidden"/>
-        <Label x:Name="actu2" Content="Actus : " HorizontalAlignment="Left" Margin="188,458,0,0" VerticalAlignment="Top" Height="33" Width="83" FontWeight="Bold" FontSize="20" FontFamily="Arial Nova" Visibility="Hidden"/>
+        <Rectangle x:Name="infos" HorizontalAlignment="Center" Height="36" Margin="0,466,0,0" Stroke="Black" VerticalAlignment="Top" Width="750" Fill="#FFEC2929" Opacity="0.85" Visibility="Hidden"/>
+        <Rectangle x:Name="majHL" HorizontalAlignment="Left" Height="100" Margin="415,152,0,0" Stroke="Black" VerticalAlignment="Top" Width="288" Visibility="Hidden" Fill="LightGray"/>
+        <Label x:Name="majlabelHL" Content="INDISPONIBLE&#xD;&#xA; " HorizontalAlignment="Left" Margin="486,184,0,0" VerticalAlignment="Top" Height="34" Width="158" FontSize="20" FontWeight="Bold" RenderTransformOrigin="1.24,0.773" Visibility="Hidden"/>
     </Grid>
 </Window>
